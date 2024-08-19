@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackable</title>
+    <link rel="icon" href="Pie3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Trackable</h1>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" aria-label="Show Add Item Tab" onclick="showTab('add-item')">Add Item</button>
+            <button class="tab-button" aria-label="Show Analytics Tab" onclick="showTab('analytics')">Analytics</button>
+        </nav>
+
+        <main>
+            <section id="add-item" class="tab-content active">
+                <!-- Form to add items -->
+                <form id="item-form" class="form">
+                    <label for="item-name">Item Name</label>
+                    <input type="text" id="item-name" required aria-required="true">
+
+                    <label for="purchase-price">Purchase Price ($)</label>
+                    <input type="number" id="purchase-price" step="0.01" min="0" required aria-required="true">
+
+                    <label for="selling-price">Selling Price ($)</label>
+                    <input type="number" id="selling-price" step="0.01" min="0" required aria-required="true">
+
+                    <label for="purchase-date">Purchase Date</label>
+                    <input type="date" id="purchase-date" required aria-required="true">
+
+                    <button type="submit">Save Item</button>
+                </form>
+
+
+                <!-- Message container -->
+                <div id="message" class="message"></div>
+
+                <!-- Table to display items -->
+                <table id="items" class="items-table">
+                    <!-- Table content will be dynamically added here -->
+                </table>
+            </section>
+
+            <section id="analytics" class="tab-content">
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Profit Overview</h3>
+                        <canvas id="profit-overview-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Investment Distribution</h3>
+                        <canvas id="investment-distribution-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Monthly Performance</h3>
+                        <canvas id="monthly-performance-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Profit Margin</h3>
+                        <div class="scrollable-chart-container">
+                            <canvas id="profit-margin-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Risk vs Reward</h3>
+                        <canvas id="risk-vs-reward-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="analytics-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Profit</h3>
+                            <p id="total-profit">$0.00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Investment</h3>
+                            <p id="total-investment">$0.00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-cash-register"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Total Cash</h3>
+                            <p id="total-cash">$0.00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Average Profit per Item</h3>
+                            <p id="average-profit">$0.00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
